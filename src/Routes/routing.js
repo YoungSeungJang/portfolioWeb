@@ -1,15 +1,15 @@
+import LayOut from 'components/layout';
+import HomePage from 'pages/home';
 import { createBrowserRouter } from 'react-router-dom';
-
-import ChattingPage from 'Pages/Chat';
-import LayOut from '../Components/Layout';
 
 const router = createBrowserRouter([
 	{
+		path: '/',
 		element: <LayOut />,
 		children: [
 			{
-				path: 'chat',
-				element: <ChattingPage />,
+				path: '',
+				element: <HomePage />,
 			},
 		],
 	},
