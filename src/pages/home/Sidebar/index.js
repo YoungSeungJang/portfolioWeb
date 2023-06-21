@@ -1,6 +1,5 @@
 import {
 	faBolt,
-	faBook,
 	faEnvelope,
 	faHouse,
 	faStar,
@@ -41,11 +40,11 @@ const menu = [
 	},
 ];
 
-const SideBar = () => {
+const SideBar = ({ color }) => {
 	const [selectMenu, setSelectMenu] = useState('HOME');
 	return (
 		<>
-			<S.Wrapper>
+			<S.Wrapper style={{ color }}>
 				<S.StyledLink
 					onClick={() => {
 						setSelectMenu('HOME');
@@ -68,7 +67,7 @@ const SideBar = () => {
 					<FontAwesomeIcon icon={faUserAlt} style={{ marginRight: '10px' }} />
 					ABOUT
 				</S.StyledLink>
-				<S.StyledLink
+				{/* <S.StyledLink
 					onClick={() => {
 						setSelectMenu('SKILL');
 					}}
@@ -78,7 +77,7 @@ const SideBar = () => {
 				>
 					<FontAwesomeIcon icon={faBook} style={{ marginRight: '10px' }} />
 					SKILL
-				</S.StyledLink>
+				</S.StyledLink> */}
 				<S.StyledLink
 					onClick={() => {
 						setSelectMenu('PROJECT');
@@ -90,7 +89,7 @@ const SideBar = () => {
 					<FontAwesomeIcon icon={faBolt} style={{ marginRight: '10px' }} />
 					PROJECT
 				</S.StyledLink>
-				<S.StyledLink to="5" smooth="true" duration={750}>
+				{/* <S.StyledLink to="5" smooth="true" duration={750}>
 					<FontAwesomeIcon
 						onClick={() => {
 							setSelectMenu('CAREER');
@@ -99,7 +98,7 @@ const SideBar = () => {
 						style={{ marginRight: '10px' }}
 					/>
 					CAREER
-				</S.StyledLink>
+				</S.StyledLink> */}
 				<S.StyledLink
 					onClick={() => {
 						setSelectMenu('CONTACT');
@@ -123,6 +122,8 @@ const Wrapper = styled.div`
 	right: 100px;
 	top: 50px;
 	${flexAllCenter}
+	z-index: 999;
+	color: white;
 `;
 
 const StyledLink = styled(Link)`

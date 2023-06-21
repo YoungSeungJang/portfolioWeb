@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
     }
 	body{
 		font-family: 'Nanum_regular';
+		overflow-y: hidden;
 	}
 
 `;

@@ -12,8 +12,7 @@ const Contact = () => {
 export default Contact;
 
 const Wrapper = styled.div`
-	${sliderContent}
-	background: linear-gradient(#fdcedf,#F8E8EE);
+	${sliderContent}/* background: linear-gradient(#fdcedf,#F8E8EE); */
 `;
 
 const S = {
