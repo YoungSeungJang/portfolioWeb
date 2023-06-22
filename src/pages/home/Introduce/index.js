@@ -95,7 +95,7 @@ export default Introduce;
 const Wrapper = styled.div`
 	${sliderContent}
 	/* background-color: #F9F5F6; */
-	background: linear-gradient(#000623,#01105D);
+	background: linear-gradient(#000623,#1E39C6);
 	${flexAllCenter}
 	color: white;
 	font-size: 3rem;

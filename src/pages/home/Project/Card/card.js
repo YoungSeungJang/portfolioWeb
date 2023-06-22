@@ -1,7 +1,12 @@
+import { useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
 import styled from 'styled-components';
 import { flexAllCenter } from 'styles/common';
 
 const Card = () => {
+	const [isFlipped, setIsFlipped] = useState(false);
+
+	const [isHover1, setIsHover1] = useState(false);
 	return (
 		<S.Wrapper>
 			{/* <img
@@ -14,77 +19,89 @@ const Card = () => {
 				<div>개발기간 : 2023.04.17 ~ 2023.06.01</div>
 				<S.About>줍줍마켓 은 중고 거래 .</S.About>
 			</S.Content> */}
-			<S.Flip>
+			{/* <S.Flip>
 				<div>
 					<div></div>
 					<div></div>
 				</div>
-			</S.Flip>
+			</S.Flip> */}
+			<S.Box>
+				<ReactCardFlip isFlipped={isFlipped}>
+					<S.Front
+						onClick={() => setIsFlipped(prev => !prev)}
+						onMouseOver={() => setIsHover1(true)}
+						onMouseOut={() => setIsHover1(false)}
+					>
+						{isHover1 && <S.HoverImg>ZoopZoop Market</S.HoverImg>}
+						<img
+							src="/zoopzoop.PNG"
+							width={'80%'}
+							style={{ borderRadius: '10px' }}
+						/>
+					</S.Front>
+					<S.Back onClick={() => setIsFlipped(prev => !prev)}>back</S.Back>
+				</ReactCardFlip>
+			</S.Box>
 		</S.Wrapper>
 	);
 };
 
 export default Card;
 
-const Wrapper = styled.div`
-	width: 900px;
-	border: 1px solid;
-	height: 300px;
-	& > img {
-		margin: 20px 0;
-	}
-	${flexAllCenter}
-`;
+const Wrapper = styled.div``;
 
 const Title = styled.div`
 	font-size: 2rem;
 	font-weight: bold;
 `;
-const About = styled.div``;
+const Box = styled.div`
+	${flexAllCenter}
+
+	& > div {
+		margin: 20px;
+	}
+`;
 
 const Content = styled.div`
 	width: 500px;
 `;
 
-const Flip = styled.div`
-	width: 200px;
-	height: 250px;
-	perspective: 1100px;
-	& > div {
-		width: 100%;
-		height: 100%;
-		position: relative;
-		transition: 0.4s;
-		transform-style: preserve-3d;
-	}
-	&:hover > div {
-		transform: rotateY(180deg);
-	}
-`;
-
-const Front = styled.div`
+const HoverImg = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	backface-visibility: hidden;
-	background: red;
+	z-index: 99;
+	background-color: rgba(0, 0, 0, 0.4);
+	font-weight: bold;
+	${flexAllCenter}
+	/* color: black; */
+	font-size: 1.2rem;
+`;
+const Front = styled.div`
+	border: 1px solid white;
+	border-radius: 20px;
+	width: 400px;
+	height: 300px;
+	color: white;
+	${flexAllCenter}
+	cursor: pointer;
 `;
 
 const Back = styled.div`
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
-	background: royalblue;
-	transform: rotateY(180deg);
+	border: 1px solid white;
+	border-radius: 20px;
+	width: 400px;
+	height: 300px;
+	color: white;
+	${flexAllCenter}
 `;
 
 const S = {
 	Wrapper,
 	Title,
-	About,
+	Box,
 	Content,
-	Flip,
 	Front,
 	Back,
+	HoverImg,
 };

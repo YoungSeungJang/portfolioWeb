@@ -230,7 +230,7 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
-	background-color: #01105d;
+	background-color: #1e39c6;
 	${flexAllCenter}
 	width: 50%;
 	height: 100%;
@@ -285,6 +285,7 @@ const Bar = styled.div`
 			${flexAllCenter}
 			justify-content: right;
 			padding-right: 20px;
+			font-size: 0.8rem;
 		}
 	}
 `;
