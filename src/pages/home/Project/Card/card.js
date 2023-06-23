@@ -3,10 +3,11 @@ import ReactCardFlip from 'react-card-flip';
 import styled from 'styled-components';
 import { flexAllCenter } from 'styles/common';
 
-const Card = () => {
+const Card = ({ project }) => {
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	const [isHover1, setIsHover1] = useState(false);
+	console.log(project);
 	return (
 		<S.Wrapper>
 			{/* <img
@@ -32,7 +33,7 @@ const Card = () => {
 						onMouseOver={() => setIsHover1(true)}
 						onMouseOut={() => setIsHover1(false)}
 					>
-						{isHover1 && <S.HoverImg>ZoopZoop Market</S.HoverImg>}
+						{isHover1 && <S.HoverImg>{project.front}</S.HoverImg>}
 						<img
 							src="/zoopzoop.PNG"
 							width={'80%'}
@@ -76,6 +77,7 @@ const HoverImg = styled.div`
 	${flexAllCenter}
 	/* color: black; */
 	font-size: 1.2rem;
+	border-radius: 20px;
 `;
 const Front = styled.div`
 	border: 1px solid white;

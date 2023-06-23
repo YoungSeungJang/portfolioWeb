@@ -26,9 +26,17 @@ const GlobalStyles = createGlobalStyle`
 		font-family: 'Nanum_heavy';
 		src: url('/Assets/Font/NanumSquareNeo-eHv.ttf');
 	    }
+		@font-face {
+			font-family: 'Nanum_pen';
+			src:url('Assets/Font/NanumPenScript-Regular.ttf')
+		}
+		@font-face {
+			font-family: 'Jalan';
+			src:url('Assets/Font/Jalnan.ttf')
+		}
     }
 	body{
-		font-family: 'Nanum_regular';
+		font-family: 'Jalan';
 		overflow-y: hidden;
 	}
 

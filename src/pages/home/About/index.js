@@ -244,8 +244,8 @@ const Right = styled.div`
 `;
 
 const ImgBox = styled.div`
-	width: 120px;
-	height: 120px;
+	width: 130px;
+	height: 130px;
 	background-color: #f9f9f9;
 	${flexAllCenter}
 	flex-direction: column;
