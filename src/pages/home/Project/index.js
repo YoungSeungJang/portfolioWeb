@@ -6,6 +6,7 @@ import Card from './Card/card';
 const Project = () => {
 	const project = [
 		{
+			img: '/zoopzoop.PNG',
 			front: 'ZoopZoop Market',
 			back: {
 				about:
@@ -15,7 +16,8 @@ const Project = () => {
 			},
 		},
 		{
-			front: 'Movie Open API',
+			img: '/movie.PNG',
+			front: 'Movie찾냥?!(Movie Open API)',
 			back: {
 				about:
 					'영화 검색 사이트입니다. OPEN API를 활용하여 구현하였으며 무한스크롤링이 구현되어있습니다.',
@@ -60,13 +62,13 @@ const Project = () => {
 		<S.Wrapper id="4">
 			<S.ContentWrapper>
 				<Card project={project[0]} />
-				<Card />
-				<Card />
+				<Card project={project[1]} />
+				<Card project={project[2]} />
 			</S.ContentWrapper>
 			<S.ContentWrapper>
-				<Card />
-				<Card />
-				<Card />
+				<Card project={project[3]} />
+				<Card project={project[4]} />
+				<Card project={project[5]} />
 			</S.ContentWrapper>
 		</S.Wrapper>
 		// <Card />

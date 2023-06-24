@@ -1,3 +1,6 @@
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import styled from 'styled-components';
@@ -7,7 +10,6 @@ const Card = ({ project }) => {
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	const [isHover1, setIsHover1] = useState(false);
-	console.log(project);
 	return (
 		<S.Wrapper>
 			{/* <img
@@ -35,12 +37,30 @@ const Card = ({ project }) => {
 					>
 						{isHover1 && <S.HoverImg>{project.front}</S.HoverImg>}
 						<img
-							src="/zoopzoop.PNG"
+							src={project.img}
 							width={'80%'}
+							// height={'80%'}
 							style={{ borderRadius: '10px' }}
 						/>
 					</S.Front>
-					<S.Back onClick={() => setIsFlipped(prev => !prev)}>back</S.Back>
+					<S.Back>
+						<span>
+							<FontAwesomeIcon
+								onClick={() => setIsFlipped(prev => !prev)}
+								icon={faXmark}
+								size="xl"
+							/>
+						</span>
+						<div>{project.front}</div>
+						<div>{project.back.about}</div>
+						<div>개발기간 : {project.back.period}</div>
+						<div>
+							<FontAwesomeIcon
+								onClick={() => window.open(project.back.giturl)}
+								icon={faGithub}
+							/>
+						</div>
+					</S.Back>
 				</ReactCardFlip>
 			</S.Box>
 		</S.Wrapper>
@@ -95,7 +115,39 @@ const Back = styled.div`
 	width: 400px;
 	height: 300px;
 	color: white;
-	${flexAllCenter}
+	/* ${flexAllCenter} */
+	font-family: 'Nanum-regular';
+	font-weight: bold;
+	flex-direction: column;
+	& > div {
+		margin: 20px;
+	}
+	& > div:nth-child(2) {
+		font-size: 1.2rem;
+	}
+	& > div:nth-child(3) {
+		font-weight: lighter;
+		line-height: 20px;
+	}
+	& > div:nth-child(5) {
+		font-size: 30px;
+		${flexAllCenter}
+		justify-content: right;
+		margin: 30px;
+	}
+	& > div:nth-child(5) > *:hover {
+		opacity: 0.5;
+		cursor: pointer;
+	}
+	& > span {
+		cursor: pointer;
+		${flexAllCenter}
+		justify-content: right;
+		margin: 20px;
+	}
+	& > span:hover {
+		opacity: 0.5;
+	}
 `;
 
 const S = {

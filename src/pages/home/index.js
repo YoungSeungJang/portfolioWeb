@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import About from './About';
 import { wheelDown, wheelUp } from 'utils/wheelEvent';
+import Back from './Back/back';
 
 const HomePage = () => {
 	const wrapper = useRef();
@@ -77,6 +78,7 @@ const HomePage = () => {
 			{/* <Stars /> */}
 			<SideBar color={color} />
 			{/* <PageList /> */}
+			<Back />
 			<S.Wrapper ref={wrapper}>
 				<Introduce />
 				<About />
