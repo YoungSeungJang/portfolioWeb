@@ -207,7 +207,7 @@ const About = () => {
 								width={70}
 							/>
 						</div>
-						<h3>소개글 ....</h3>
+						<h3></h3>
 					</S.RightBox>
 				</S.Right>
 			</S.Container>

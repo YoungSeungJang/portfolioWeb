@@ -5,7 +5,6 @@ import React from 'react';
 import Introduce from './Introduce';
 import SideBar from './Sidebar';
 import Project from './Project';
-import Contact from './Contact';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 
@@ -85,7 +84,7 @@ const HomePage = () => {
 				{/* <Skill /> */}
 				<Project />
 				{/* <Career /> */}
-				<Contact />
+				{/* <Contact /> */}
 			</S.Wrapper>
 		</>
 	);

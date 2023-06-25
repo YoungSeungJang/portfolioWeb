@@ -26,11 +26,13 @@ const Project = () => {
 			},
 		},
 		{
-			front: '3',
+			img: '/search.PNG',
+			front: '검색기능 사이트',
 			back: {
-				about: 'About.',
-				period: 'Period',
-				giturl: 'git URL',
+				about:
+					'JSON-SERVER API를 활용한 검색을 만들었습니다 최근검색 기록까지 가능하도록 구현하였습니다.',
+				period: '2023.03.30~2023.04.03',
+				giturl: 'https://github.com/YoungSeungJang/searchApi',
 			},
 		},
 		{
