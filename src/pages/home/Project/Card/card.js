@@ -12,22 +12,6 @@ const Card = ({ project }) => {
 	const [isHover1, setIsHover1] = useState(false);
 	return (
 		<S.Wrapper>
-			{/* <img
-				src="/zoopzoop.PNG"
-				width={400}
-				onClick={() => window.open('https://zoopzoop-market.vercel.app/')}
-			/>
-			<S.Content>
-				<S.Title>ZoopZoop Market</S.Title>
-				<div>개발기간 : 2023.04.17 ~ 2023.06.01</div>
-				<S.About>줍줍마켓 은 중고 거래 .</S.About>
-			</S.Content> */}
-			{/* <S.Flip>
-				<div>
-					<div></div>
-					<div></div>
-				</div>
-			</S.Flip> */}
 			<S.Box>
 				<ReactCardFlip isFlipped={isFlipped}>
 					<S.Front
