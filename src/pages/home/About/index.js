@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { flexAllCenter, sliderContent } from 'styles/common';
 import { motion } from 'framer-motion';
 import Explain from './Explain/explain';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 const About = () => {
 	const [isHover1, setIsHover1] = useState(false);
@@ -13,6 +15,12 @@ const About = () => {
 	const [isHover6, setIsHover6] = useState(false);
 	const [isHover7, setIsHover7] = useState(false);
 	const [isHover8, setIsHover8] = useState(false);
+	const [stateWidth, setStateWidth] = useState([]);
+	const widthRef = useRef();
+	console.log(widthRef.current?.clientWidth);
+	useEffect(() => {
+		// const sectionWidth = widthRef.current?.clientWidth;
+	}, []);
 	const skill = [
 		{
 			name: 'JAVASCRIPT',
@@ -43,6 +51,7 @@ const About = () => {
 			per: '30%',
 		},
 	];
+
 	return (
 		<S.Wrapper id="2">
 			<S.Container>
@@ -185,7 +194,9 @@ const About = () => {
 								<>
 									<h3>{el.name}</h3>
 									<div>
-										<div style={{ width: el.per }}>{el.per}</div>
+										<S.Percent ref={widthRef} width={el.per}>
+											{el.per}
+										</S.Percent>
 									</div>
 								</>
 							))}
@@ -285,9 +296,20 @@ const Bar = styled.div`
 			${flexAllCenter}
 			justify-content: right;
 			padding-right: 20px;
-			font-size: 0.8rem;
+			font-size: 0.75rem;
 		}
 	}
+`;
+
+const progress = keyframes`
+	0%{
+		width: 0;
+	}
+`;
+
+const Percent = styled.div`
+	width: ${({ width }) => width};
+	animation: ${progress} ease-in-out 1.6s;
 `;
 
 const RightBox = styled.div`
@@ -311,4 +333,5 @@ const S = {
 	ImgBox,
 	Bar,
 	RightBox,
+	Percent,
 };
