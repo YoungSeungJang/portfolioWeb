@@ -99,7 +99,7 @@ const SideBar = ({ color }) => {
 					/>
 					CAREER
 				</S.StyledLink> */}
-				<S.StyledLink
+				{/* <S.StyledLink
 					onClick={() => {
 						setSelectMenu('CONTACT');
 					}}
@@ -109,7 +109,7 @@ const SideBar = ({ color }) => {
 				>
 					<FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '10px' }} />
 					CONTACT
-				</S.StyledLink>
+				</S.StyledLink> */}
 			</S.Wrapper>
 		</>
 	);
@@ -130,6 +130,17 @@ const StyledLink = styled(Link)`
 	font-weight: bold;
 	margin: 0 10px;
 	cursor: pointer;
+	&::after {
+		display: block;
+		content: '';
+		border-bottom: solid 3px ${({ color }) => color};
+		transform: scaleX(0);
+		transition: transform 250ms ease-in-out;
+		margin-top: 10px;
+	}
+	&:hover:after {
+		transform: scaleX(1);
+	}
 `;
 
 const S = {

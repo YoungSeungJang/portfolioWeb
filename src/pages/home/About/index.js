@@ -4,9 +4,9 @@ import { flexAllCenter, sliderContent } from 'styles/common';
 import { motion } from 'framer-motion';
 import Explain from './Explain/explain';
 import { useRef } from 'react';
-import { useEffect } from 'react';
+import { usePopper } from 'react-popper';
 
-const About = () => {
+const About = ({ widthState }) => {
 	const [isHover1, setIsHover1] = useState(false);
 	const [isHover2, setIsHover2] = useState(false);
 	const [isHover3, setIsHover3] = useState(false);
@@ -18,39 +18,13 @@ const About = () => {
 	const [stateWidth, setStateWidth] = useState([]);
 	const widthRef = useRef();
 	console.log(widthRef.current?.clientWidth);
-	useEffect(() => {
-		// const sectionWidth = widthRef.current?.clientWidth;
-	}, []);
-	const skill = [
-		{
-			name: 'JAVASCRIPT',
-			per: '70%',
-		},
-		{
-			name: 'HTML',
-			per: '70%',
-		},
-		{
-			name: 'CSS',
-			per: '70%',
-		},
-		{
-			name: 'REACT',
-			per: '60%',
-		},
-		{
-			name: 'REACT_QUERY',
-			per: '30%',
-		},
-		{
-			name: 'RECOIL',
-			per: '30%',
-		},
-		{
-			name: 'REDUX',
-			per: '30%',
-		},
-	];
+
+	const [referenceElement, setReferenceElement] = useState(null);
+	const [popperElement, setPopperElement] = useState(null);
+	const [arrowElement, setArrowElement] = useState(null);
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
+	});
 
 	return (
 		<S.Wrapper id="2">
@@ -67,10 +41,7 @@ const About = () => {
 									onMouseLeave={() => setIsHover1(false)}
 								>
 									{isHover1 && <Explain detail={'familiar'} />}
-									<img
-										src="https://i.namu.wiki/i/GFgxq3pF-Jm-R5HzfAazD10byqZcPfso7XcQJTZDBxrMi_IwO1xgB3zH7d86IC0_-kAsI7AweS-ZRbJPutd30TWMqshppm4_AUmPvGJ70FV5zfMhwioPBX-3ZDHBo5d66dc_PY4FOV4BAP3woF3gPw.svg"
-										width={50}
-									/>
+									<img src="/js.png" width={50} />
 									<div>JavaScript</div>
 								</S.ImgBox>
 							</motion.div>
@@ -83,10 +54,7 @@ const About = () => {
 									onMouseLeave={() => setIsHover2(false)}
 								>
 									{isHover2 && <Explain detail={'familiar'} />}
-									<img
-										src="https://i.namu.wiki/i/S854VYKF1uSlSeRE52JYbppMwaVm7yU3Ev-hsaRbR6Un6foxVfZevwBRyWJli73ZotqunOEmajvhJTJcOlu7TBTxfRMGK7-4mTg8T_re-UOa6ESYjD4RtfaISwWFq4I_0H3ZExej1uee2sOa_8ZZMQ.svg"
-										width={50}
-									/>
+									<img src="/html.png" width={50} />
 									<div>HTML</div>
 								</S.ImgBox>
 							</motion.div>
@@ -99,10 +67,7 @@ const About = () => {
 									onMouseLeave={() => setIsHover3(false)}
 								>
 									{isHover3 && <Explain detail={'familiar'} />}
-									<img
-										src="https://i.namu.wiki/i/2WNY6CmWKE2Ygyj6YmUJNSs0I-fcf0gmDz-fc4byWRqjMyyC9SOHd0PWI2dI61RMyV6t3UbVlydTkkj7Ea_z81C0SH16waMzlLNE2j79ulS9kTurl5H8Gah7Mj7qGHgWKnpIjeqEmvWltUv6SDKScg.svg"
-										width={40}
-									/>
+									<img src="/css.png" width={40} />
 									<div>CSS</div>
 								</S.ImgBox>
 							</motion.div>
@@ -115,10 +80,7 @@ const About = () => {
 									onMouseLeave={() => setIsHover4(false)}
 								>
 									{isHover4 && <Explain detail={'familiar'} />}
-									<img
-										src="https://i.namu.wiki/i/hIvF8sd9cGZGkHWB0HZg9S-yvN7Kcy4V_fNWF4ygZLKQb3ilN72OE2c_9SxFIrU4s9gkN51cKr0nEyDvb6pgf_Aro8pO_ew8l-XYRdsaiSCqTfHcXGQZuVB-dzFn4ldgV3ROVRlixJZX9Swd-Ga6EQ.svg"
-										width={70}
-									/>
+									<img src="/react.png" width={70} />
 									<div>React</div>
 								</S.ImgBox>
 							</motion.div>
@@ -190,7 +152,7 @@ const About = () => {
 							</motion.div>
 						</S.BoxWrapper>
 						<S.Bar>
-							{skill.map(el => (
+							{widthState?.map(el => (
 								<>
 									<h3>{el.name}</h3>
 									<div>
@@ -208,17 +170,24 @@ const About = () => {
 						<img
 							style={{ borderRadius: '50%' }}
 							src="/profile.png"
-							width={300}
+							width={230}
 						/>
 						<div>
 							<img src="/github.png" width={70} />
 							<img src="/tistory.png" width={70} />
-							<img
-								src="https://i.namu.wiki/i/8K8pVTSYdLwQ9J36HGLhwF67zOrCMC_ec4HzaFJcHzupVGakQBKXlzxiEy_7FoBhXjmFUX9ZVi0AaOlKOi3kYw.svg"
-								width={70}
-							/>
+							<img src="/notion.png" width={70} />
 						</div>
-						<h3></h3>
+						<h3>
+							안녕하세요 FrontEnd 신입개발자 장영승이라고 합니다.
+							<br />
+							저는 이러한 가치관을 추구하는 개발자입니다.
+							<br />
+							1. 모르는것을 두려워하지 않고 천천히 성장하는 개발자
+							<br />
+							2. 수동적이지 않고 능동적인 개발자
+							<br />
+							3. 
+						</h3>
 					</S.RightBox>
 				</S.Right>
 			</S.Container>
@@ -309,10 +278,12 @@ const progress = keyframes`
 
 const Percent = styled.div`
 	width: ${({ width }) => width};
-	animation: ${progress} ease-in-out 1.6s;
+	animation: ${progress} ease-in-out 1.5s;
 `;
 
 const RightBox = styled.div`
+	${flexAllCenter}
+	flex-direction: column;
 	color: black;
 	font-size: 1.5rem;
 	& > div {
@@ -321,6 +292,9 @@ const RightBox = styled.div`
 		& > img {
 			margin: 0 10px;
 		}
+	}
+	& > h3 {
+		font-family: 'Nanum_pen';
 	}
 `;
 

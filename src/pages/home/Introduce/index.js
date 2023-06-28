@@ -78,7 +78,7 @@ const Introduce = () => {
 			</motion.div> */}
 				<S.MainBox>
 					<span>안녕하세요</span>
-					<S.Intro ref={typing}></S.Intro>
+					<S.Intro style={{ color: '#1DB8F5' }} ref={typing}></S.Intro>
 					<span>프론트엔드 개발자 입니다.</span>
 					<S.ArrowDown>
 						<div>SCROLL</div>
