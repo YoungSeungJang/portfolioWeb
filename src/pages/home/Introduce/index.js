@@ -102,7 +102,8 @@ const Wrapper = styled.div`
 `;
 
 const MainBox = styled.div`
-	${flexAllCenter}
+	${flexAllCenter};
+	z-index: 999;
 `;
 
 const Intro = styled.span`

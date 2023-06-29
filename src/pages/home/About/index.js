@@ -173,20 +173,36 @@ const About = ({ widthState }) => {
 							width={230}
 						/>
 						<div>
-							<img src="/github.png" width={70} />
-							<img src="/tistory.png" width={70} />
-							<img src="/notion.png" width={70} />
+							<img
+								onClick={() => window.open('https://github.com/YoungSeungJang')}
+								src="/github.png"
+								width={70}
+							/>
+							<img
+								onClick={() => window.open('https://seungsnote.tistory.com/')}
+								src="/tistory.png"
+								width={70}
+							/>
+							<img
+								onClick={() =>
+									window.open(
+										'https://www.notion.so/a754235525134cbf9ccb2339ee1b4fa7',
+									)
+								}
+								src="/notion.png"
+								width={70}
+							/>
 						</div>
 						<h3>
-							안녕하세요 FrontEnd 신입개발자 장영승이라고 합니다.
+							안녕하세요 FrontEnd 신입개발자 <span>장영승</span>이라고 합니다.
 							<br />
 							저는 이러한 가치관을 추구하는 개발자입니다.
 							<br />
-							1. 모르는것을 두려워하지 않고 천천히 성장하는 개발자
+							1. 모르는것을 두려워하지 않고 천천히 <span>성장</span>하는 개발자
 							<br />
-							2. 수동적이지 않고 능동적인 개발자
+							2. 수동적이지 않고 <span>능동</span>적인 개발자
 							<br />
-							3. 
+							3. 팀 혹은 동료와 <span>소통</span>하는 개발자
 						</h3>
 					</S.RightBox>
 				</S.Right>
@@ -292,9 +308,16 @@ const RightBox = styled.div`
 		& > img {
 			margin: 0 10px;
 		}
+		cursor: pointer;
 	}
 	& > h3 {
 		font-family: 'Nanum_pen';
+		line-height: 30px;
+		margin-top: 20px;
+		& > span {
+			font-weight: bold;
+			font-size: 2rem;
+		}
 	}
 `;
 

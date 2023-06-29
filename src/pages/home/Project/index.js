@@ -67,11 +67,11 @@ const Project = () => {
 				<Card project={project[1]} />
 				<Card project={project[2]} />
 			</S.ContentWrapper>
-			<S.ContentWrapper>
+			{/* <S.ContentWrapper>
 				<Card project={project[3]} />
 				<Card project={project[4]} />
 				<Card project={project[5]} />
-			</S.ContentWrapper>
+			</S.ContentWrapper> */}
 		</S.Wrapper>
 		// <Card />
 	);
